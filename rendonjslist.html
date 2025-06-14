@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let rendom = [
+            { id: 1, img: 'https://randomuser.me/api/portraits/men/1.jpg', name: 'John Carter', phoneno: 9876543210, address: '123 Main St, New York, NY', salary: 55000 },
+            { id: 2, img: 'https://randomuser.me/api/portraits/women/2.jpg', name: 'Emily Davis', phoneno: 9845612378, address: '456 Oak Ave, Los Angeles, CA', salary: 62000 },
+            { id: 3, img: 'https://randomuser.me/api/portraits/men/3.jpg', name: 'Michael Smith', phoneno: 9764312567, address: '789 Pine Rd, Chicago, IL', salary: 47000 },
+            { id: 4, img: 'https://randomuser.me/api/portraits/women/4.jpg', name: 'Sophia Johnson', phoneno: 9988776655, address: '321 Cedar Ln, Houston, TX', salary: 73500 },
+            { id: 5, img: 'https://randomuser.me/api/portraits/men/5.jpg', name: 'James Wilson', phoneno: 9123456789, address: '654 Spruce Dr, Phoenix, AZ', salary: 58000 },
+            { id: 6, img: 'https://randomuser.me/api/portraits/women/6.jpg', name: 'Isabella Brown', phoneno: 9356741289, address: '987 Birch Blvd, Philadelphia, PA', salary: 60000 },
+            { id: 7, img: 'https://randomuser.me/api/portraits/men/7.jpg', name: 'William Martinez', phoneno: 9456123789, address: '147 Maple St, San Antonio, TX', salary: 51000 },
+            { id: 8, img: 'https://randomuser.me/api/portraits/women/8.jpg', name: 'Olivia Garcia', phoneno: 9562314789, address: '258 Elm Rd, San Diego, CA', salary: 67000 },
+            { id: 9, img: 'https://randomuser.me/api/portraits/men/9.jpg', name: 'Daniel Hernandez', phoneno: 9678432156, address: '369 Walnut Ave, Dallas, TX', salary: 52000 },
+            { id: 10, img: 'https://randomuser.me/api/portraits/women/10.jpg', name: 'Mia Lee', phoneno: 9783216540, address: '753 Chestnut St, San Jose, CA', salary: 64000 },
+            { id: 11, img: 'https://randomuser.me/api/portraits/men/11.jpg', name: 'Alexander Clark', phoneno: 9873201456, address: '258 Hickory Ln, Austin, TX', salary: 59000 },
+            { id: 12, img: 'https://randomuser.me/api/portraits/women/12.jpg', name: 'Charlotte Lewis', phoneno: 9541238765, address: '951 Willow Dr, Jacksonville, FL', salary: 61000 },
+            { id: 13, img: 'https://randomuser.me/api/portraits/men/13.jpg', name: 'Benjamin Walker', phoneno: 9645312765, address: '753 Aspen Ave, Fort Worth, TX', salary: 56000 },
+            { id: 14, img: 'https://randomuser.me/api/portraits/women/14.jpg', name: 'Amelia Hall', phoneno: 9321457689, address: '159 Redwood Rd, Columbus, OH', salary: 63000 },
+            { id: 15, img: 'https://randomuser.me/api/portraits/men/15.jpg', name: 'Ethan Allen', phoneno: 9213476580, address: '963 Palm St, Charlotte, NC', salary: 55000 },
+            { id: 16, img: 'https://randomuser.me/api/portraits/women/16.jpg', name: 'Harper Young', phoneno: 9384765123, address: '147 Sequoia Blvd, San Francisco, CA', salary: 70000 },
+            { id: 17, img: 'https://randomuser.me/api/portraits/men/17.jpg', name: 'Logan King', phoneno: 9182736450, address: '321 Magnolia Dr, Indianapolis, IN', salary: 48000 },
+            { id: 18, img: 'https://randomuser.me/api/portraits/women/18.jpg', name: 'Ella Wright', phoneno: 9876541287, address: '852 Cypress Ln, Seattle, WA', salary: 62000 },
+            { id: 19, img: 'https://randomuser.me/api/portraits/men/19.jpg', name: 'Henry Scott', phoneno: 9456871234, address: '753 Olive St, Denver, CO', salary: 57500 },
+            { id: 20, img: 'https://randomuser.me/api/portraits/women/20.jpg', name: 'Abigail Green', phoneno: 9786123456, address: '951 Poplar Ave, Washington, DC', salary: 59000 },
+            { id: 21, img: 'https://randomuser.me/api/portraits/men/21.jpg', name: 'Joseph Adams', phoneno: 9873218760, address: '753 Fir St, Boston, MA', salary: 61000 },
+            { id: 22, img: 'https://randomuser.me/api/portraits/women/22.jpg', name: 'Avery Baker', phoneno: 9687321450, address: '456 Larch Ave, Nashville, TN', salary: 53000 },
+            { id: 23, img: 'https://randomuser.me/api/portraits/men/23.jpg', name: 'Samuel Nelson', phoneno: 9348756213, address: '258 Beech Dr, Detroit, MI', salary: 65000 },
+            { id: 24, img: 'https://randomuser.me/api/portraits/women/24.jpg', name: 'Sofia Perez', phoneno: 9432765890, address: '147 Hemlock Ln, El Paso, TX', salary: 54000 },
+            { id: 25, img: 'https://randomuser.me/api/portraits/men/25.jpg', name: 'David Thomas', phoneno: 9345612789, address: '369 Ash Blvd, Memphis, TN', salary: 59000 },
+            { id: 26, img: 'https://randomuser.me/api/portraits/women/26.jpg', name: 'Aria Rivera', phoneno: 9654321780, address: '159 Palm Dr, Oklahoma City, OK', salary: 51000 },
+            { id: 27, img: 'https://randomuser.me/api/portraits/men/27.jpg', name: 'Matthew Ramirez', phoneno: 9783124567, address: '963 Juniper Ln, Las Vegas, NV', salary: 56000 },
+            { id: 28, img: 'https://randomuser.me/api/portraits/women/28.jpg', name: 'Luna Torres', phoneno: 9765412398, address: '258 Redwood St, Louisville, KY', salary: 58000 },
+            { id: 29, img: 'https://randomuser.me/api/portraits/men/29.jpg', name: 'Jackson Campbell', phoneno: 9586273412, address: '147 Maple Blvd, Baltimore, MD', salary: 62000 },
+            { id: 30, img: 'https://randomuser.me/api/portraits/women/30.jpg', name: 'Scarlett Flores', phoneno: 9467821354, address: '753 Elm Ave, Milwaukee, WI', salary: 54000 },
+            { id: 31, img: 'https://randomuser.me/api/portraits/men/31.jpg', name: 'Anthony Morris', phoneno: 9347652310, address: '369 Oak Ln, Albuquerque, NM', salary: 59000 },
+            { id: 32, img: 'https://randomuser.me/api/portraits/women/32.jpg', name: 'Victoria Rogers', phoneno: 9321786543, address: '951 Cedar Rd, Tucson, AZ', salary: 61000 },
+            { id: 33, img: 'https://randomuser.me/api/portraits/men/33.jpg', name: 'Joshua Reed', phoneno: 9786521340, address: '147 Birch Ave, Fresno, CA', salary: 57000 },
+            { id: 34, img: 'https://randomuser.me/api/portraits/women/34.jpg', name: 'Zoe Cook', phoneno: 9871234567, address: '258 Pine Ln, Sacramento, CA', salary: 60000 },
+            { id: 35, img: 'https://randomuser.me/api/portraits/men/35.jpg', name: 'Andrew Bell', phoneno: 9432187650, address: '753 Spruce Dr, Mesa, AZ', salary: 53000 },
+            { id: 36, img: 'https://randomuser.me/api/portraits/women/36.jpg', name: 'Lily Murphy', phoneno: 9264378512, address: '321 Oak Ave, Atlanta, GA', salary: 63000 },
+            { id: 37, img: 'https://randomuser.me/api/portraits/men/37.jpg', name: 'Nathan Bailey', phoneno: 9782314650, address: '147 Cypress Blvd, Kansas City, MO', salary: 61000 },
+            { id: 38, img: 'https://randomuser.me/api/portraits/women/38.jpg', name: 'Chloe Cooper', phoneno: 9654327810, address: '951 Elm St, Omaha, NE', salary: 52000 },
+            { id: 39, img: 'https://randomuser.me/api/portraits/men/39.jpg', name: 'Ryan Ward', phoneno: 9348756102, address: '753 Chestnut Ln, Raleigh, NC', salary: 58000 },
+            { id: 40, img: 'https://randomuser.me/api/portraits/women/40.jpg', name: 'Aubrey Cox', phoneno: 9321478560, address: '258 Willow Dr, Miami, FL', salary: 57000 },
+            { id: 41, img: 'https://randomuser.me/api/portraits/men/41.jpg', name: 'Gabriel Diaz', phoneno: 9213456870, address: '321 Magnolia Blvd, Arlington, TX', salary: 55000 },
+            { id: 42, img: 'https://randomuser.me/api/portraits/women/42.jpg', name: 'Hannah Richardson', phoneno: 9786123045, address: '963 Poplar Ln, Minneapolis, MN', salary: 61000 },
+            { id: 43, img: 'https://randomuser.me/api/portraits/men/43.jpg', name: 'Dylan James', phoneno: 9765432109, address: '159 Sequoia Dr, Tulsa, OK', salary: 58000 },
+            { id: 44, img: 'https://randomuser.me/api/portraits/women/44.jpg', name: 'Layla Griffin', phoneno: 9654327812, address: '258 Hickory Ln, Tampa, FL', salary: 60000 },
+            { id: 45, img: 'https://randomuser.me/api/portraits/men/45.jpg', name: 'Owen Watson', phoneno: 9876543211, address: '753 Beech Ave, Aurora, CO', salary: 57000 },
+            { id: 46, img: 'https://randomuser.me/api/portraits/women/46.jpg', name: 'Nora Brooks', phoneno: 9348756123, address: '147 Aspen St, Anaheim, CA', salary: 55000 },
+            { id: 47, img: 'https://randomuser.me/api/portraits/men/47.jpg', name: 'Elijah Bennett', phoneno: 9321467850, address: '951 Redwood Blvd, Cleveland, OH', salary: 62000 },
+            { id: 48, img: 'https://randomuser.me/api/portraits/women/48.jpg', name: 'Hazel Powell', phoneno: 9783126540, address: '321 Larch Ln, Honolulu, HI', salary: 61000 },
+            { id: 49, img: 'https://randomuser.me/api/portraits/men/49.jpg', name: 'Sebastian Simmons', phoneno: 9456781230, address: '258 Maple Dr, Pittsburgh, PA', salary: 58000 },
+            { id: 50, img: 'https://randomuser.me/api/portraits/women/50.jpg', name: 'Penelope Foster', phoneno: 9874561230, address: '753 Fir Ln, St. Louis, MO', salary: 60000 }
+
+        ];
+
+        document.write("<table>");
+        document.write("<tr>");
+        document.write("<th>Image</th>");
+        document.write("<th>ID</th>");
+        document.write("<th>Name</th>");
+        document.write("<th>Phone No</th>");
+        document.write("<th>Address</th>");
+        document.write("<th>Salary</th>");
+        document.write("</tr>");
+
+        for(let i = 0; i < rendom.length; i++) {
+            document.write("<tr>");
+            document.write("<td><img src='" + rendom[i].img + "' /></td>");
+            document.write("<td>" + rendom[i].id + "</td>");
+            document.write("<td>" + rendom[i].name + "</td>");
+            document.write("<td>" + rendom[i].phoneno + "</td>");
+            document.write("<td>" + rendom[i].address + "</td>");
+            document.write("<td>$" + rendom[i].salary+ "</td>");
+            document.write("</tr>");
+        }
+
+        document.write("</table>");
+    </script>
+</body>
+</html>
